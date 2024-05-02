@@ -1,0 +1,25 @@
+[2024-05-02T11:54:35.417+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-02T11:54:35.429+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cep_dag.etl_4 manual__2024-05-02T11:53:11.691574+00:00 [queued]>
+[2024-05-02T11:54:35.434+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cep_dag.etl_4 manual__2024-05-02T11:53:11.691574+00:00 [queued]>
+[2024-05-02T11:54:35.434+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-05-02T11:54:35.442+0000] {taskinstance.py:2327} INFO - Executing <Task(_PythonDecoratedOperator): etl_4> on 2024-05-02 11:53:11.691574+00:00
+[2024-05-02T11:54:35.448+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=210) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-02T11:54:35.449+0000] {standard_task_runner.py:63} INFO - Started process 212 to run task
+[2024-05-02T11:54:35.449+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cep_dag', 'etl_4', 'manual__2024-05-02T11:53:11.691574+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/cep.py', '--cfg-path', '/tmp/tmpe1oiuvxq']
+[2024-05-02T11:54:35.450+0000] {standard_task_runner.py:91} INFO - Job 37: Subtask etl_4
+[2024-05-02T11:54:35.474+0000] {task_command.py:426} INFO - Running <TaskInstance: cep_dag.etl_4 manual__2024-05-02T11:53:11.691574+00:00 [running]> on host 0e53be1c4f92
+[2024-05-02T11:54:35.523+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cep_dag' AIRFLOW_CTX_TASK_ID='etl_4' AIRFLOW_CTX_EXECUTION_DATE='2024-05-02T11:53:11.691574+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-02T11:53:11.691574+00:00'
+[2024-05-02T11:54:35.524+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-02T11:54:35.525+0000] {logging_mixin.py:188} INFO - [{'filename': 'log_logradouro_rj.txt', 'tablename': 'log_logradouro', 'columns': ['log_nu', 'ufe_sg', 'loc_nu', 'bai_nu_ini', 'bai_nu_fim', 'log_no', 'log_complemento', 'cep', 'tlo_tx', 'log_sta_tlo', 'log_no_abrev']}]
+[2024-05-02T11:54:35.525+0000] {logging_mixin.py:188} INFO - Filename: /opt/***/output/cep/log_logradouro_rj.txt, Table: log_logradouro, Columns: ['log_nu', 'ufe_sg', 'loc_nu', 'bai_nu_ini', 'bai_nu_fim', 'log_no', 'log_complemento', 'cep', 'tlo_tx', 'log_sta_tlo', 'log_no_abrev']
+[2024-05-02T11:54:35.651+0000] {logging_mixin.py:188} INFO - /opt/***/output/cep/log_logradouro_rj.txt loaded into dataframe
+[2024-05-02T11:54:42.348+0000] {logging_mixin.py:188} INFO - log_logradouro persisted
+[2024-05-02T11:54:42.358+0000] {logging_mixin.py:188} INFO - Done
+[2024-05-02T11:54:42.359+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-05-02T11:54:42.359+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-02T11:54:42.368+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=cep_dag, task_id=etl_4, execution_date=20240502T115311, start_date=20240502T115435, end_date=20240502T115442
+[2024-05-02T11:54:42.413+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-02T11:54:42.436+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-02T11:54:42.438+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

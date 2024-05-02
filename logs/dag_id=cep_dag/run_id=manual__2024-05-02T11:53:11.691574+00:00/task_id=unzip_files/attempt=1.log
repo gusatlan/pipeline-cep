@@ -1,0 +1,162 @@
+[2024-05-02T11:53:15.849+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-02T11:53:15.862+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cep_dag.unzip_files manual__2024-05-02T11:53:11.691574+00:00 [queued]>
+[2024-05-02T11:53:15.867+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cep_dag.unzip_files manual__2024-05-02T11:53:11.691574+00:00 [queued]>
+[2024-05-02T11:53:15.867+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-05-02T11:53:15.876+0000] {taskinstance.py:2327} INFO - Executing <Task(_PythonDecoratedOperator): unzip_files> on 2024-05-02 11:53:11.691574+00:00
+[2024-05-02T11:53:15.880+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=161) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-02T11:53:15.881+0000] {standard_task_runner.py:63} INFO - Started process 163 to run task
+[2024-05-02T11:53:15.881+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cep_dag', 'unzip_files', 'manual__2024-05-02T11:53:11.691574+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/cep.py', '--cfg-path', '/tmp/tmpx00ys9ya']
+[2024-05-02T11:53:15.883+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask unzip_files
+[2024-05-02T11:53:15.907+0000] {task_command.py:426} INFO - Running <TaskInstance: cep_dag.unzip_files manual__2024-05-02T11:53:11.691574+00:00 [running]> on host 0e53be1c4f92
+[2024-05-02T11:53:15.957+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cep_dag' AIRFLOW_CTX_TASK_ID='unzip_files' AIRFLOW_CTX_EXECUTION_DATE='2024-05-02T11:53:11.691574+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-02T11:53:11.691574+00:00'
+[2024-05-02T11:53:15.958+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-02T11:53:15.958+0000] {logging_mixin.py:188} INFO - Timeout for unzip_files(): 0:20:00
+[2024-05-02T11:53:15.959+0000] {logging_mixin.py:188} INFO - Found cep.zip
+[2024-05-02T11:53:15.962+0000] {logging_mixin.py:188} INFO - Extracted cep/ => /opt/***/output
+[2024-05-02T11:53:15.962+0000] {logging_mixin.py:188} INFO - Extracted cep/A_COMUNICADO 4 - Informacao sobre atualizacoes_1704.docx => /opt/***/output
+[2024-05-02T11:53:15.962+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/ => /opt/***/output
+[2024-05-02T11:53:15.968+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_UNID_OPER.txt => /opt/***/output
+[2024-05-02T11:53:15.976+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_FAIXA_BAIRRO.TXT => /opt/***/output
+[2024-05-02T11:53:15.991+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_PR.TXT => /opt/***/output
+[2024-05-02T11:53:15.993+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_SE.TXT => /opt/***/output
+[2024-05-02T11:53:16.016+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_MG.TXT => /opt/***/output
+[2024-05-02T11:53:16.019+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_PI.TXT => /opt/***/output
+[2024-05-02T11:53:16.092+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_SP.TXT => /opt/***/output
+[2024-05-02T11:53:16.093+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/Cepnet.exe => /opt/***/output
+[2024-05-02T11:53:16.097+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_VAR_BAI.txt => /opt/***/output
+[2024-05-02T11:53:16.098+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/Leiautes_delimitador.doc => /opt/***/output
+[2024-05-02T11:53:16.105+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_BAIRRO.TXT => /opt/***/output
+[2024-05-02T11:53:16.130+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_RJ.TXT => /opt/***/output
+[2024-05-02T11:53:16.131+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_FAIXA_CPC.txt => /opt/***/output
+[2024-05-02T11:53:16.135+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_MA.TXT => /opt/***/output
+[2024-05-02T11:53:16.136+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_AC.txt => /opt/***/output
+[2024-05-02T11:53:16.142+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_PA.TXT => /opt/***/output
+[2024-05-02T11:53:16.146+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_MT.TXT => /opt/***/output
+[2024-05-02T11:53:16.148+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_TO.TXT => /opt/***/output
+[2024-05-02T11:53:16.152+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_MS.TXT => /opt/***/output
+[2024-05-02T11:53:16.164+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_SC.TXT => /opt/***/output
+[2024-05-02T11:53:16.172+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_CE.TXT => /opt/***/output
+[2024-05-02T11:53:16.172+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_VAR_LOC.txt => /opt/***/output
+[2024-05-02T11:53:16.175+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOCALIDADE.txt => /opt/***/output
+[2024-05-02T11:53:16.178+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_RO.TXT => /opt/***/output
+[2024-05-02T11:53:16.185+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_NUM_SEC.txt => /opt/***/output
+[2024-05-02T11:53:16.194+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_VAR_LOG.txt => /opt/***/output
+[2024-05-02T11:53:16.195+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_AP.TXT => /opt/***/output
+[2024-05-02T11:53:16.202+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_DF.txt => /opt/***/output
+[2024-05-02T11:53:16.202+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_FAIXA_UOP.txt => /opt/***/output
+[2024-05-02T11:53:16.206+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_AL.TXT => /opt/***/output
+[2024-05-02T11:53:16.219+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_RS.TXT => /opt/***/output
+[2024-05-02T11:53:16.233+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_GO.TXT => /opt/***/output
+[2024-05-02T11:53:16.238+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_PB.TXT => /opt/***/output
+[2024-05-02T11:53:16.251+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_PE.TXT => /opt/***/output
+[2024-05-02T11:53:16.257+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_GRANDE_USUARIO.txt => /opt/***/output
+[2024-05-02T11:53:16.258+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_RR.TXT => /opt/***/output
+[2024-05-02T11:53:16.258+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_FAIXA_UF.txt => /opt/***/output
+[2024-05-02T11:53:16.262+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_AM.TXT => /opt/***/output
+[2024-05-02T11:53:16.263+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_CPC.TXT => /opt/***/output
+[2024-05-02T11:53:16.264+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/ECT_PAIS.TXT => /opt/***/output
+[2024-05-02T11:53:16.266+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/guia tecnico_cepnet.pdf => /opt/***/output
+[2024-05-02T11:53:16.278+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_BA.TXT => /opt/***/output
+[2024-05-02T11:53:16.282+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_RN.TXT => /opt/***/output
+[2024-05-02T11:53:16.285+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/guia_formato normal.pdf => /opt/***/output
+[2024-05-02T11:53:16.286+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_FAIXA_LOCALIDADE.txt => /opt/***/output
+[2024-05-02T11:53:16.295+0000] {logging_mixin.py:188} INFO - Extracted cep/Delimitado/LOG_LOGRADOURO_ES.txt => /opt/***/output
+[2024-05-02T11:53:16.295+0000] {logging_mixin.py:188} INFO - Extracted cep/LEIAME.TXT => /opt/***/output
+[2024-05-02T11:53:16.346+0000] {logging_mixin.py:188} INFO - Extracted cep/eDNE_Basico.zip => /opt/***/output
+[2024-05-02T11:53:16.347+0000] {logging_mixin.py:188} INFO - Extracted cep/A_COMUNICADO.doc => /opt/***/output
+[2024-05-02T11:53:16.347+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/ => /opt/***/output
+[2024-05-02T11:53:16.347+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_CAIXAS_POSTAIS_COMUNITA.LOG => /opt/***/output
+[2024-05-02T11:53:16.359+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MS_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.370+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RN_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.370+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_TITULOS_PATENTES.LOG => /opt/***/output
+[2024-05-02T11:53:16.371+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_SE_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.416+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PR_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.417+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AC_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.418+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/Cepnet.exe => /opt/***/output
+[2024-05-02T11:53:16.458+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RS_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.458+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AP_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.478+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PA_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.478+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AM_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.480+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RR_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.481+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RJ_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.489+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RO_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.501+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MA_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.501+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_ES_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.501+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AL_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.518+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_BAIRROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.518+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PE_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.518+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_GRANDES_USUARIOS.LOG => /opt/***/output
+[2024-05-02T11:53:16.519+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_LOCALIDADES.LOG => /opt/***/output
+[2024-05-02T11:53:16.519+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_GO_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.519+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MG_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.546+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_DF_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.548+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/Leiautes_Fixo.doc => /opt/***/output
+[2024-05-02T11:53:16.554+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_TO_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.576+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_CE_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.577+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PAISES.TXT => /opt/***/output
+[2024-05-02T11:53:16.577+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_FAIXAS_CEP_UF.TXT => /opt/***/output
+[2024-05-02T11:53:16.578+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MT_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.578+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_FAIXAS_CEP_BAIRRO.LOG => /opt/***/output
+[2024-05-02T11:53:16.589+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PB_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.590+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_UNIDADES_OPERACIONAIS.LOG => /opt/***/output
+[2024-05-02T11:53:16.590+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_FAIXAS_CEP_LOCALIDADE.LOG => /opt/***/output
+[2024-05-02T11:53:16.590+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_UNIDADES_FEDERACAO.TXT => /opt/***/output
+[2024-05-02T11:53:16.590+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_TIPOS_LOGRADOURO.LOG => /opt/***/output
+[2024-05-02T11:53:16.831+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_SP_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.831+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_BA_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.832+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PI_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.867+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_SC_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.881+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AM_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.881+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PA_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.883+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AP_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.887+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AC_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.887+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PR_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.888+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RS_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.888+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MS_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.890+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_CAIXAS_POSTAIS_COMUNITA.TXT => /opt/***/output
+[2024-05-02T11:53:16.890+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_TITULOS_PATENTES.TXT => /opt/***/output
+[2024-05-02T11:53:16.890+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RN_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.895+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_SE_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.896+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/A_DNE_MOD_REL_TABELAS.gif => /opt/***/output
+[2024-05-02T11:53:16.896+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_BAIRROS.LOG => /opt/***/output
+[2024-05-02T11:53:16.940+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PE_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:16.957+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_GRANDES_USUARIOS.TXT => /opt/***/output
+[2024-05-02T11:53:16.961+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_LOCALIDADES.TXT => /opt/***/output
+[2024-05-02T11:53:17.006+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_GO_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.007+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MA_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.016+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_AL_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.044+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_ES_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.127+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RJ_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.128+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RO_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.128+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_RR_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.142+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MT_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.143+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/guia tecnico_cepnet.pdf => /opt/***/output
+[2024-05-02T11:53:17.144+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_FAIXAS_CEP_UF.LOG => /opt/***/output
+[2024-05-02T11:53:17.174+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_FAIXAS_CEP_BAIRRO.TXT => /opt/***/output
+[2024-05-02T11:53:17.174+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_TO_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.174+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PAISES.LOG => /opt/***/output
+[2024-05-02T11:53:17.174+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_CE_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.175+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_DF_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.251+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_MG_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.251+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_SC_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.261+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PI_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.304+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_BA_LOGRADOUROS.TXT => /opt/***/output
+[2024-05-02T11:53:17.305+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_SP_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.305+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_PB_LOGRADOUROS.LOG => /opt/***/output
+[2024-05-02T11:53:17.308+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/guia_formato normal.pdf => /opt/***/output
+[2024-05-02T11:53:17.309+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_TIPOS_LOGRADOURO.TXT => /opt/***/output
+[2024-05-02T11:53:17.309+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_UNIDADES_FEDERACAO.LOG => /opt/***/output
+[2024-05-02T11:53:17.311+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_FAIXAS_CEP_LOCALIDADE.TXT => /opt/***/output
+[2024-05-02T11:53:17.332+0000] {logging_mixin.py:188} INFO - Extracted cep/Fixo/DNE_GU_UNIDADES_OPERACIONAIS.TXT => /opt/***/output
+[2024-05-02T11:53:17.332+0000] {logging_mixin.py:188} INFO - Extracted cep/Alteracao_Leiaute_Arq_Faixas de CEP.docx => /opt/***/output
+[2024-05-02T11:53:17.333+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-05-02T11:53:17.333+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-02T11:53:17.339+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=cep_dag, task_id=unzip_files, execution_date=20240502T115311, start_date=20240502T115315, end_date=20240502T115317
+[2024-05-02T11:53:17.377+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-02T11:53:17.390+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-05-02T11:53:17.402+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-02T11:53:17.403+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

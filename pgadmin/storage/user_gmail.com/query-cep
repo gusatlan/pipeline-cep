@@ -1,0 +1,19 @@
+select * from log_logradouro limit 1000;
+--select * from log_faixa_bairro;
+
+truncate log_bairro;
+truncate log_cpc;
+truncate log_faixa_bairro;
+truncate log_faixa_cpc;
+truncate log_faixa_localidade;
+truncate log_faixa_uf;
+truncate log_faixa_uop;
+truncate log_grande_usuario;
+truncate log_localidade;
+truncate log_logradouro;
+truncate log_num_sec;
+truncate log_unid_oper;
+truncate log_var_bai;
+truncate log_var_loc;
+truncate log_var_log;
+truncate ect_pais;

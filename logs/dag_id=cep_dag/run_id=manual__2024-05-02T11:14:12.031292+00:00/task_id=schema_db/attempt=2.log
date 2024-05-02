@@ -1,0 +1,663 @@
+[2024-05-02T11:16:14.055+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-02T11:16:14.068+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cep_dag.schema_db manual__2024-05-02T11:14:12.031292+00:00 [queued]>
+[2024-05-02T11:16:14.073+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cep_dag.schema_db manual__2024-05-02T11:14:12.031292+00:00 [queued]>
+[2024-05-02T11:16:14.073+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2024-05-02T11:16:14.081+0000] {taskinstance.py:2327} INFO - Executing <Task(PostgresOperator): schema_db> on 2024-05-02 11:14:12.031292+00:00
+[2024-05-02T11:16:14.086+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=124) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-02T11:16:14.087+0000] {standard_task_runner.py:63} INFO - Started process 126 to run task
+[2024-05-02T11:16:14.087+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cep_dag', 'schema_db', 'manual__2024-05-02T11:14:12.031292+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/cep.py', '--cfg-path', '/tmp/tmpg76683sp']
+[2024-05-02T11:16:14.088+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask schema_db
+[2024-05-02T11:16:14.113+0000] {task_command.py:426} INFO - Running <TaskInstance: cep_dag.schema_db manual__2024-05-02T11:14:12.031292+00:00 [running]> on host 278214997a30
+[2024-05-02T11:16:14.162+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cep_dag' AIRFLOW_CTX_TASK_ID='schema_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-02T11:14:12.031292+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-02T11:14:12.031292+00:00'
+[2024-05-02T11:16:14.163+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-02T11:16:14.163+0000] {sql.py:276} INFO - Executing: 
+CREATE TABLE IF NOT EXISTS public.ect_pais
+(
+    pai_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    pai_sg_alternativa character varying(3) COLLATE pg_catalog."default",
+    pai_no_portugues character varying(72) COLLATE pg_catalog."default",
+    pai_no_ingles character varying(72) COLLATE pg_catalog."default",
+    pai_no_frances character varying(72) COLLATE pg_catalog."default",
+    pai_abreviatura character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT ect_pais_pkey PRIMARY KEY (pai_sg)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.ect_pais
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_ect_pais
+    ON public.ect_pais USING btree
+    (pai_sg COLLATE pg_catalog."default" ASC NULLS LAST, pai_sg_alternativa COLLATE pg_catalog."default" ASC NULLS LAST, pai_no_portugues COLLATE pg_catalog."default" ASC NULLS LAST, pai_no_ingles COLLATE pg_catalog."default" ASC NULLS LAST, pai_no_frances COLLATE pg_catalog."default" ASC NULLS LAST, pai_abreviatura COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+
+CREATE TABLE IF NOT EXISTS public.log_bairro
+(
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    bai_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_bairro_pkey PRIMARY KEY (bai_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_bairro
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_bairro
+    ON public.log_bairro USING btree
+    (bai_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, bai_no COLLATE pg_catalog."default" ASC NULLS LAST, bai_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+
+CREATE TABLE IF NOT EXISTS public.log_cpc
+(
+    cpc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    cpc_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    cpc_endereco character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_cpc_pkey PRIMARY KEY (cpc_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_cpc
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_cpc
+    ON public.log_cpc USING btree
+    (cpc_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, cpc_no COLLATE pg_catalog."default" ASC NULLS LAST, cpc_endereco COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+
+CREATE TABLE IF NOT EXISTS public.log_faixa_bairro
+(
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fcb_cep_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fcb_cep_fim character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_bairro_pkey PRIMARY KEY (bai_nu, fcb_cep_ini)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_bairro
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_bairro on log_faixa_bairro (bai_nu, fcb_cep_ini, fcb_cep_fim);
+
+
+CREATE TABLE IF NOT EXISTS public.log_faixa_cpc
+(
+    cpc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    cpc_inicial character varying(6) COLLATE pg_catalog."default" NOT NULL,
+    cpc_final character varying(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_cpc_pkey PRIMARY KEY (cpc_nu, cpc_inicial)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_cpc
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_cpc
+    ON public.log_faixa_cpc USING btree
+    (cpc_nu COLLATE pg_catalog."default" ASC NULLS LAST, cpc_inicial COLLATE pg_catalog."default" ASC NULLS LAST, cpc_final COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+
+CREATE TABLE IF NOT EXISTS public.log_faixa_localidade
+(
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    loc_cep_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    loc_cep_fim character varying(8) COLLATE pg_catalog."default",
+    loc_tipo_faixa character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_localidade_pkey PRIMARY KEY (loc_nu, loc_cep_ini, loc_tipo_faixa)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_localidade
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_localidade
+    ON public.log_faixa_localidade USING btree
+    (loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, loc_cep_ini COLLATE pg_catalog."default" ASC NULLS LAST, loc_cep_fim COLLATE pg_catalog."default" ASC NULLS LAST, loc_tipo_faixa COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_faixa_uf
+(
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    ufe_cep_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_cep_fim character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_uf_pkey PRIMARY KEY (ufe_sg, ufe_cep_ini, ufe_cep_fim)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_uf
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_uf
+    ON public.log_faixa_uf USING btree
+    (ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, ufe_cep_ini COLLATE pg_catalog."default" ASC NULLS LAST, ufe_cep_fim COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_faixa_uop
+(
+    uop_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fnc_inicial character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fnc_final character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_uop_pkey PRIMARY KEY (uop_nu, fnc_inicial)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_uop
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_uop
+    ON public.log_faixa_uop USING btree
+    (uop_nu COLLATE pg_catalog."default" ASC NULLS LAST, fnc_inicial COLLATE pg_catalog."default" ASC NULLS LAST, fnc_final COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_grande_usuario
+(
+    gru_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    log_nu character varying(8) COLLATE pg_catalog."default",
+    gru_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    gru_endereco character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    gru_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_grande_usuario_pkey PRIMARY KEY (gru_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_grande_usuario
+    OWNER to ***;
+    
+CREATE TABLE IF NOT EXISTS public.log_localidade
+(
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default",
+    loc_in_sit character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    loc_in_tipo_loc character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu_sub character varying(8) COLLATE pg_catalog."default",
+    loc_no_abrev character varying(36) COLLATE pg_catalog."default",
+    mun_nu character varying(7) COLLATE pg_catalog."default",
+    CONSTRAINT log_localidade_pkey PRIMARY KEY (loc_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_localidade
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_localidade
+    ON public.log_localidade USING btree
+    (loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_no COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST, loc_in_sit COLLATE pg_catalog."default" ASC NULLS LAST, loc_in_tipo_loc COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu_sub COLLATE pg_catalog."default" ASC NULLS LAST, loc_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST, mun_nu COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_logradouro
+(
+    log_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu_fim character varying(8) COLLATE pg_catalog."default",
+    log_no character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    log_complemento character varying(100) COLLATE pg_catalog."default",
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    tlo_tx character varying(36) COLLATE pg_catalog."default" NOT NULL,
+    log_sta_tlo character varying(1) COLLATE pg_catalog."default",
+    log_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_logradouro_pkey PRIMARY KEY (log_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_logradouro
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_logradouro
+    ON public.log_logradouro USING btree
+    (log_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, bai_nu_ini COLLATE pg_catalog."default" ASC NULLS LAST, bai_nu_fim COLLATE pg_catalog."default" ASC NULLS LAST, log_no COLLATE pg_catalog."default" ASC NULLS LAST, log_complemento COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST, tlo_tx COLLATE pg_catalog."default" ASC NULLS LAST, log_sta_tlo COLLATE pg_catalog."default" ASC NULLS LAST, log_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_num_sec
+(
+    log_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    sec_nu_ini character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    sec_nu_fim character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    sec_in_lado character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_num_sec_pkey PRIMARY KEY (log_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_num_sec
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_num_sec
+    ON public.log_num_sec USING btree
+    (log_nu COLLATE pg_catalog."default" ASC NULLS LAST, sec_nu_ini COLLATE pg_catalog."default" ASC NULLS LAST, sec_nu_fim COLLATE pg_catalog."default" ASC NULLS LAST, sec_in_lado COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_unid_oper
+(
+    uop_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    log_nu character varying(8) COLLATE pg_catalog."default",
+    uop_no character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    uop_endereco character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    uop_in_cp character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    uop_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_unid_oper_pkey PRIMARY KEY (uop_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_unid_oper
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_unid_oper
+    ON public.log_unid_oper USING btree
+    (uop_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, bai_nu COLLATE pg_catalog."default" ASC NULLS LAST, log_nu COLLATE pg_catalog."default" ASC NULLS LAST, uop_no COLLATE pg_catalog."default" ASC NULLS LAST, uop_endereco COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST, uop_in_cp COLLATE pg_catalog."default" ASC NULLS LAST, uop_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_var_bai
+(
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    vdb_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    vdb_tx character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_var_bai_pkey PRIMARY KEY (bai_nu, vdb_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_var_bai
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_var_bai
+    ON public.log_var_bai USING btree
+    (bai_nu COLLATE pg_catalog."default" ASC NULLS LAST, vdb_nu COLLATE pg_catalog."default" ASC NULLS LAST, vdb_tx COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_var_loc
+(
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    val_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    val_txt character varying(72) COLLATE pg_catalog."default",
+    CONSTRAINT log_var_loc_pkey PRIMARY KEY (loc_nu, val_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_var_loc
+    OWNER to ***;
+    
+CREATE TABLE IF NOT EXISTS public.log_var_log
+(
+    log_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    vlo_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    tlo_tx character varying(36) COLLATE pg_catalog."default" NOT NULL,
+    vlo_no character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_var_log_pkey PRIMARY KEY (log_nu, vlo_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_var_log
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_var_log
+    ON public.log_var_log USING btree
+    (log_nu COLLATE pg_catalog."default" ASC NULLS LAST, vlo_nu COLLATE pg_catalog."default" ASC NULLS LAST, tlo_tx COLLATE pg_catalog."default" ASC NULLS LAST, vlo_no COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+[2024-05-02T11:16:14.168+0000] {base.py:84} INFO - Using connection ID 'postgres_cep' for task execution.
+[2024-05-02T11:16:14.173+0000] {base.py:84} INFO - Using connection ID 'postgres_cep' for task execution.
+[2024-05-02T11:16:14.175+0000] {sql.py:457} INFO - Running statement: 
+CREATE TABLE IF NOT EXISTS public.ect_pais
+(
+    pai_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    pai_sg_alternativa character varying(3) COLLATE pg_catalog."default",
+    pai_no_portugues character varying(72) COLLATE pg_catalog."default",
+    pai_no_ingles character varying(72) COLLATE pg_catalog."default",
+    pai_no_frances character varying(72) COLLATE pg_catalog."default",
+    pai_abreviatura character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT ect_pais_pkey PRIMARY KEY (pai_sg)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.ect_pais
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_ect_pais
+    ON public.ect_pais USING btree
+    (pai_sg COLLATE pg_catalog."default" ASC NULLS LAST, pai_sg_alternativa COLLATE pg_catalog."default" ASC NULLS LAST, pai_no_portugues COLLATE pg_catalog."default" ASC NULLS LAST, pai_no_ingles COLLATE pg_catalog."default" ASC NULLS LAST, pai_no_frances COLLATE pg_catalog."default" ASC NULLS LAST, pai_abreviatura COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+
+CREATE TABLE IF NOT EXISTS public.log_bairro
+(
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    bai_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_bairro_pkey PRIMARY KEY (bai_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_bairro
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_bairro
+    ON public.log_bairro USING btree
+    (bai_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, bai_no COLLATE pg_catalog."default" ASC NULLS LAST, bai_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+
+CREATE TABLE IF NOT EXISTS public.log_cpc
+(
+    cpc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    cpc_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    cpc_endereco character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_cpc_pkey PRIMARY KEY (cpc_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_cpc
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_cpc
+    ON public.log_cpc USING btree
+    (cpc_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, cpc_no COLLATE pg_catalog."default" ASC NULLS LAST, cpc_endereco COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+
+CREATE TABLE IF NOT EXISTS public.log_faixa_bairro
+(
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fcb_cep_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fcb_cep_fim character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_bairro_pkey PRIMARY KEY (bai_nu, fcb_cep_ini)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_bairro
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_bairro on log_faixa_bairro (bai_nu, fcb_cep_ini, fcb_cep_fim);
+
+
+CREATE TABLE IF NOT EXISTS public.log_faixa_cpc
+(
+    cpc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    cpc_inicial character varying(6) COLLATE pg_catalog."default" NOT NULL,
+    cpc_final character varying(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_cpc_pkey PRIMARY KEY (cpc_nu, cpc_inicial)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_cpc
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_cpc
+    ON public.log_faixa_cpc USING btree
+    (cpc_nu COLLATE pg_catalog."default" ASC NULLS LAST, cpc_inicial COLLATE pg_catalog."default" ASC NULLS LAST, cpc_final COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+
+CREATE TABLE IF NOT EXISTS public.log_faixa_localidade
+(
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    loc_cep_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    loc_cep_fim character varying(8) COLLATE pg_catalog."default",
+    loc_tipo_faixa character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_localidade_pkey PRIMARY KEY (loc_nu, loc_cep_ini, loc_tipo_faixa)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_localidade
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_localidade
+    ON public.log_faixa_localidade USING btree
+    (loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, loc_cep_ini COLLATE pg_catalog."default" ASC NULLS LAST, loc_cep_fim COLLATE pg_catalog."default" ASC NULLS LAST, loc_tipo_faixa COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_faixa_uf
+(
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    ufe_cep_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_cep_fim character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_uf_pkey PRIMARY KEY (ufe_sg, ufe_cep_ini, ufe_cep_fim)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_uf
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_uf
+    ON public.log_faixa_uf USING btree
+    (ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, ufe_cep_ini COLLATE pg_catalog."default" ASC NULLS LAST, ufe_cep_fim COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_faixa_uop
+(
+    uop_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fnc_inicial character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    fnc_final character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_faixa_uop_pkey PRIMARY KEY (uop_nu, fnc_inicial)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_faixa_uop
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_faixa_uop
+    ON public.log_faixa_uop USING btree
+    (uop_nu COLLATE pg_catalog."default" ASC NULLS LAST, fnc_inicial COLLATE pg_catalog."default" ASC NULLS LAST, fnc_final COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_grande_usuario
+(
+    gru_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    log_nu character varying(8) COLLATE pg_catalog."default",
+    gru_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    gru_endereco character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    gru_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_grande_usuario_pkey PRIMARY KEY (gru_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_grande_usuario
+    OWNER to ***;
+    
+CREATE TABLE IF NOT EXISTS public.log_localidade
+(
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_no character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default",
+    loc_in_sit character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    loc_in_tipo_loc character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu_sub character varying(8) COLLATE pg_catalog."default",
+    loc_no_abrev character varying(36) COLLATE pg_catalog."default",
+    mun_nu character varying(7) COLLATE pg_catalog."default",
+    CONSTRAINT log_localidade_pkey PRIMARY KEY (loc_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_localidade
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_localidade
+    ON public.log_localidade USING btree
+    (loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_no COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST, loc_in_sit COLLATE pg_catalog."default" ASC NULLS LAST, loc_in_tipo_loc COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu_sub COLLATE pg_catalog."default" ASC NULLS LAST, loc_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST, mun_nu COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_logradouro
+(
+    log_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu_ini character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu_fim character varying(8) COLLATE pg_catalog."default",
+    log_no character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    log_complemento character varying(100) COLLATE pg_catalog."default",
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    tlo_tx character varying(36) COLLATE pg_catalog."default" NOT NULL,
+    log_sta_tlo character varying(1) COLLATE pg_catalog."default",
+    log_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_logradouro_pkey PRIMARY KEY (log_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_logradouro
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_logradouro
+    ON public.log_logradouro USING btree
+    (log_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, bai_nu_ini COLLATE pg_catalog."default" ASC NULLS LAST, bai_nu_fim COLLATE pg_catalog."default" ASC NULLS LAST, log_no COLLATE pg_catalog."default" ASC NULLS LAST, log_complemento COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST, tlo_tx COLLATE pg_catalog."default" ASC NULLS LAST, log_sta_tlo COLLATE pg_catalog."default" ASC NULLS LAST, log_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_num_sec
+(
+    log_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    sec_nu_ini character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    sec_nu_fim character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    sec_in_lado character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_num_sec_pkey PRIMARY KEY (log_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_num_sec
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_num_sec
+    ON public.log_num_sec USING btree
+    (log_nu COLLATE pg_catalog."default" ASC NULLS LAST, sec_nu_ini COLLATE pg_catalog."default" ASC NULLS LAST, sec_nu_fim COLLATE pg_catalog."default" ASC NULLS LAST, sec_in_lado COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_unid_oper
+(
+    uop_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    ufe_sg character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    log_nu character varying(8) COLLATE pg_catalog."default",
+    uop_no character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    uop_endereco character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    cep character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    uop_in_cp character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    uop_no_abrev character varying(36) COLLATE pg_catalog."default",
+    CONSTRAINT log_unid_oper_pkey PRIMARY KEY (uop_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_unid_oper
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_unid_oper
+    ON public.log_unid_oper USING btree
+    (uop_nu COLLATE pg_catalog."default" ASC NULLS LAST, ufe_sg COLLATE pg_catalog."default" ASC NULLS LAST, loc_nu COLLATE pg_catalog."default" ASC NULLS LAST, bai_nu COLLATE pg_catalog."default" ASC NULLS LAST, log_nu COLLATE pg_catalog."default" ASC NULLS LAST, uop_no COLLATE pg_catalog."default" ASC NULLS LAST, uop_endereco COLLATE pg_catalog."default" ASC NULLS LAST, cep COLLATE pg_catalog."default" ASC NULLS LAST, uop_in_cp COLLATE pg_catalog."default" ASC NULLS LAST, uop_no_abrev COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_var_bai
+(
+    bai_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    vdb_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    vdb_tx character varying(72) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_var_bai_pkey PRIMARY KEY (bai_nu, vdb_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_var_bai
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_var_bai
+    ON public.log_var_bai USING btree
+    (bai_nu COLLATE pg_catalog."default" ASC NULLS LAST, vdb_nu COLLATE pg_catalog."default" ASC NULLS LAST, vdb_tx COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+    
+CREATE TABLE IF NOT EXISTS public.log_var_loc
+(
+    loc_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    val_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    val_txt character varying(72) COLLATE pg_catalog."default",
+    CONSTRAINT log_var_loc_pkey PRIMARY KEY (loc_nu, val_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_var_loc
+    OWNER to ***;
+    
+CREATE TABLE IF NOT EXISTS public.log_var_log
+(
+    log_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    vlo_nu character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    tlo_tx character varying(36) COLLATE pg_catalog."default" NOT NULL,
+    vlo_no character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT log_var_log_pkey PRIMARY KEY (log_nu, vlo_nu)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.log_var_log
+    OWNER to ***;
+
+CREATE INDEX IF NOT EXISTS idx_log_var_log
+    ON public.log_var_log USING btree
+    (log_nu COLLATE pg_catalog."default" ASC NULLS LAST, vlo_nu COLLATE pg_catalog."default" ASC NULLS LAST, tlo_tx COLLATE pg_catalog."default" ASC NULLS LAST, vlo_no COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;, parameters: None
+[2024-05-02T11:16:14.242+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:407: AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+  result = self._make_common_data_structure(handler(cur))
+
+[2024-05-02T11:16:14.244+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-02T11:16:14.250+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=cep_dag, task_id=schema_db, execution_date=20240502T111412, start_date=20240502T111614, end_date=20240502T111614
+[2024-05-02T11:16:14.299+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-02T11:16:14.308+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-05-02T11:16:14.319+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-02T11:16:14.320+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

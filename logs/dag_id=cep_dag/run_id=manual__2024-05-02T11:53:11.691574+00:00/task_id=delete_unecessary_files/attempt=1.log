@@ -1,0 +1,112 @@
+[2024-05-02T11:53:18.661+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-02T11:53:18.675+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cep_dag.delete_unecessary_files manual__2024-05-02T11:53:11.691574+00:00 [queued]>
+[2024-05-02T11:53:18.679+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cep_dag.delete_unecessary_files manual__2024-05-02T11:53:11.691574+00:00 [queued]>
+[2024-05-02T11:53:18.680+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-05-02T11:53:18.687+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): delete_unecessary_files> on 2024-05-02 11:53:11.691574+00:00
+[2024-05-02T11:53:18.692+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=164) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-02T11:53:18.693+0000] {standard_task_runner.py:63} INFO - Started process 166 to run task
+[2024-05-02T11:53:18.693+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'cep_dag', 'delete_unecessary_files', 'manual__2024-05-02T11:53:11.691574+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/cep.py', '--cfg-path', '/tmp/tmp3t3ulir2']
+[2024-05-02T11:53:18.695+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask delete_unecessary_files
+[2024-05-02T11:53:18.719+0000] {task_command.py:426} INFO - Running <TaskInstance: cep_dag.delete_unecessary_files manual__2024-05-02T11:53:11.691574+00:00 [running]> on host 0e53be1c4f92
+[2024-05-02T11:53:18.772+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cep_dag' AIRFLOW_CTX_TASK_ID='delete_unecessary_files' AIRFLOW_CTX_EXECUTION_DATE='2024-05-02T11:53:11.691574+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-02T11:53:11.691574+00:00'
+[2024-05-02T11:53:18.773+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-02T11:53:18.773+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-05-02T11:53:18.774+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'rm /opt/***/output/cep/*;rm -Rvf /opt/***/output/cep/Fixo']
+[2024-05-02T11:53:18.784+0000] {subprocess.py:86} INFO - Output:
+[2024-05-02T11:53:18.787+0000] {subprocess.py:93} INFO - rm: cannot remove '/opt/***/output/cep/Delimitado': Is a directory
+[2024-05-02T11:53:18.787+0000] {subprocess.py:93} INFO - rm: cannot remove '/opt/***/output/cep/Fixo': Is a directory
+[2024-05-02T11:53:18.831+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_TITULOS_PATENTES.TXT'
+[2024-05-02T11:53:18.832+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_UNIDADES_FEDERACAO.LOG'
+[2024-05-02T11:53:18.832+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MA_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.832+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PAISES.LOG'
+[2024-05-02T11:53:18.832+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_GRANDES_USUARIOS.LOG'
+[2024-05-02T11:53:18.832+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PR_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.832+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_GRANDES_USUARIOS.TXT'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_CAIXAS_POSTAIS_COMUNITA.TXT'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_SP_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_FAIXAS_CEP_LOCALIDADE.LOG'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RR_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_BAIRROS.LOG'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_UNIDADES_OPERACIONAIS.TXT'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PE_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_FAIXAS_CEP_LOCALIDADE.TXT'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_TIPOS_LOGRADOURO.TXT'
+[2024-05-02T11:53:18.833+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/Cepnet.exe'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/guia tecnico_cepnet.pdf'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RR_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_UNIDADES_FEDERACAO.TXT'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PB_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_TITULOS_PATENTES.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_UNIDADES_OPERACIONAIS.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_GO_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PAISES.TXT'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AC_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RO_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RS_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.834+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_CE_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RN_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_FAIXAS_CEP_UF.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_SC_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PE_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_DF_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PI_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_BAIRROS.TXT'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PA_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_LOCALIDADES.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PR_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RO_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.835+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_SC_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_SE_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_ES_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_FAIXAS_CEP_BAIRRO.LOG'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_TO_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/A_DNE_MOD_REL_TABELAS.gif'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RS_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PB_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_TO_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_BA_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.836+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MT_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_SP_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/guia_formato normal.pdf'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/Leiautes_Fixo.doc'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_SE_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MG_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PA_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MA_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MG_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.837+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AP_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.838+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_CAIXAS_POSTAIS_COMUNITA.LOG'
+[2024-05-02T11:53:18.838+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RN_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.853+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_TIPOS_LOGRADOURO.LOG'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AL_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AL_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_BA_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_GO_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MS_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AC_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MS_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AP_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.854+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AM_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_DF_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_PI_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RJ_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_ES_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_RJ_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_LOCALIDADES.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_FAIXAS_CEP_UF.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_FAIXAS_CEP_BAIRRO.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_AM_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_MT_LOGRADOUROS.LOG'
+[2024-05-02T11:53:18.855+0000] {subprocess.py:93} INFO - removed '/opt/***/output/cep/Fixo/DNE_GU_CE_LOGRADOUROS.TXT'
+[2024-05-02T11:53:18.856+0000] {subprocess.py:93} INFO - removed directory '/opt/***/output/cep/Fixo'
+[2024-05-02T11:53:18.856+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-05-02T11:53:18.856+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-02T11:53:18.870+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=cep_dag, task_id=delete_unecessary_files, execution_date=20240502T115311, start_date=20240502T115318, end_date=20240502T115318
+[2024-05-02T11:53:18.906+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-02T11:53:18.913+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-05-02T11:53:18.925+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-02T11:53:18.926+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
